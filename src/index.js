@@ -1,10 +1,16 @@
-import "./styles.css";
+const readline = require('readline');
 
-document.getElementById("app").innerHTML = `
-<h1>Hello Vanilla!</h1>
-<div>
-  We use the same configuration as Parcel to bundle this sandbox, you can find more
-  info about Parcel 
-  <a href="https://parceljs.org" target="_blank" rel="noopener noreferrer">here</a>.
-</div>
-`;
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question('Please enter potential palindrome: ', checkForPalindrome);
+
+function checkForPalindrome(s) {
+    if (s == s.split("").reverse().join("")) {
+        console.log(s, "is a Palindrome");
+    } else {
+        console.log(s, "Not a Palindrome");
+    }
+}
